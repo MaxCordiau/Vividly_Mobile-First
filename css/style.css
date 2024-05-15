@@ -243,7 +243,7 @@ header h1 {
 
 footer{
     background-color: var(--black);
-    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
 }
 footer a{
     color: var(--white);
