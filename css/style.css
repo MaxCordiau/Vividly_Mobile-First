@@ -48,7 +48,7 @@ p {
 .container1440 {
     max-width: 1440px;
     margin: auto;
-    padding: 0px 15px;
+    /* padding: 0px 15px; */
 }
 button{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
@@ -63,6 +63,8 @@ button{
     border-radius: 30px;
     padding: 10px 16px;
     transition: all 0.2s ease-in-out;
+    width: 100px;
+    place-self: center;
 }
 button:hover{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
@@ -78,32 +80,48 @@ a{
     box-shadow: 0 0 10px rgb(157 130 130 / 50%);
 }
 /* Header */
-header{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    align-items: center;
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
-header img{
-    align-items: center;
+
+header > div {
+    display: none;
+}
+
+nav {
+    display: block;
+    justify-self: start;
+    display: flex;
+}
+
+header > a {
+    grid-column: 2;
 }
 .fa-solid{
     display: none;
 }
 header nav  ul{
     display: flex;
+    align-items: center;
     list-style: none;
     gap: 20px;
 }
 header nav ul li a{
     text-decoration: none;
     color: #000;
+    font-size: 14PX;
+}
+header nav ul li a:hover{
+    color: var(--orange);
+    transition: all 0.3s ease-in-out;
 }
 header h1 {
     color: var(--black);
     font-weight: 400;
     font-size: 30px;
     font-family: var(--shrik);
+    text-align: center;
 }
 /* Section 1 */
 #s1 {
@@ -145,21 +163,19 @@ header h1 {
 #s2{
     display: grid;
     gap: 20px;
-    padding-left: 20px;
     margin-bottom: 20px;
+    padding: 0px 150px 0px 150px;
 }
 #s2 div{
     gap: 10px;
     position: relative;
     padding: 10px;
     border-radius: 5px;
-    /* max-width: 80%; */
 }
 #content-1::before{
     content: "1";
     position: absolute;
     height: 10px;
-    /* font-size: 20px; */
     background-color: var(--orange);
     color: var(--white);
     top: 20%;
@@ -171,7 +187,6 @@ header h1 {
     content: "2";
     position: absolute;
     height: 10px;
-    /* font-size: 20px; */
     background-color: var(--orange);
     color: var(--white);
     top: 20%;
@@ -183,7 +198,6 @@ header h1 {
     content: "3";
     position: absolute;
     height: 10px;
-    /* font-size: 20px; */
     background-color: var(--orange);
     color: var(--white);
     top: 20%;
@@ -193,12 +207,11 @@ header h1 {
 }
 
 /* s3 */
+
 #s3{
-    /* display: grid;
-    grid-template-columns: 1fr, 1fr; */
     gap: 20px;
     background-color: var(--lightOrange);
-    padding-bottom: 20px;
+    padding: 20px;
 }
 #s3 div article{
     background-color: var(--white);
@@ -209,15 +222,24 @@ header h1 {
 #s3 div article img{
     border-radius: 10px 10px 0px 0px;
     width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 #fingerWite:active{
     content: class="fa-solid fa-thumbs-up"  id="fingerBlack";
 }
-
-.new > a{
+#s3 > h2{
+    padding: 20px 0px 20px 0px;
+}
+#s3 article a{
     display: flex;
     flex-direction: column;
     margin-left: 10px;
+}
+#s3 div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
 }
 #s3 > div >article:nth-child(2),article:nth-child(3) > p:nth-child(5){
     border-top: var(--lightOrange);
@@ -249,7 +271,6 @@ header h1 {
     position: absolute;
     bottom: 10px;
     right: 10px;
-
 }
 
 #hand:checked + label .fa-regular{
@@ -284,11 +305,15 @@ header h1 {
     color: var(--black);
     font-weight: 700;
 }
-
+#s3 > div > button{
+    grid-column: span 2;
+}
 /* Footer */
 footer{
+    display: flex;
     background-color: var(--black);
     padding: 10px 10px 10px 10px;
+    justify-content: center;
 }
 footer a{
     color: var(--white);
@@ -301,26 +326,70 @@ footer h1{
     margin-bottom: 10px;
 }
 footer ul{
+    margin-left: 40px;
+    display: flex;
+    gap: 40px;
     line-height: 25px;
+    align-items: center;
 }
-
+footer ul li a:hover{
+    color: var(--orange);
+    transition: all 0.3s ease-in-out;
+}
 /* RESONSIVE */
 @media only screen and (min-width: 768px) and (max-width:1024px) {
     header{
         display: grid;
-        grid-template-columns: 1fr 0fr;
+        grid-template-columns: 1fr 1fr 1fr;
         padding: 10px;
-        justify-items: center;
+        align-items: center;
     }
     header nav{
         display: none;
     }
-    header img{
-        align-items: center;
+    body > header > a:nth-child(3){
+        display: contents;
+        text-align: end;
     }
     .fa-solid{
         display: block;
-        align-items: end;
+    }
+    h2{
+        font-size: 22px;
+        margin: 10px 0px 10px 0px;
+    }
+    #s2{
+        padding: 0px 20px 0px 20px;
+    }
+    footer{
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+    footer ul{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5px;
+        margin: 0px;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px){
+    header{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 10px;
+        align-items: center;
+    }
+    header nav{
+        display: none;
+    }
+    body > header > a:nth-child(3){
+        display: contents;
+        text-align: end;
+    }
+    .fa-solid{
+        display: block;
     }
     h2{
         font-size: 22px;
@@ -328,34 +397,26 @@ footer ul{
     }
     #s3 div{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 40px;
     }
-}
-
-@media only screen and (min-width: 320px) and (max-width: 767px){
-    header{
+    #s2{
+        padding: 0px 20px 0px 20px;
+    }
+    #s3 div{
+        display: flex;
+        flex-direction: column;
+    }
+    footer{
         display: grid;
-        grid-template-columns: 1fr 0fr;
+        grid-template-columns: 1fr;
         padding: 10px;
-        justify-items: center;
     }
-    header nav{
-        display: none;
+    footer ul{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5px;
+        margin: 0px;
     }
-    header img{
-        align-items: center;
-    }
-    .fa-solid{
-        display: block;
-        align-items: end;
-    }
-    h2{
-        font-size: 22px;
-        margin: 10px 0px 10px 0px;
-    }
-    #s3{
-        /* display: grid;
-        grid-template-columns: 1fr, 1fr; */
-    }
+
 }
