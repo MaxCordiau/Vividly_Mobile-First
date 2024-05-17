@@ -431,11 +431,10 @@ footer ul li a:hover{
     border-radius: 50%;
     animation: spin 2s linear normal;
     transform: translate(-50%, -50%);
-    z-index: 1000; 
+    z-index: 1000;
 }
 #loader::before {
     background-color: var(--lightOrange);
-
 }
 @keyframes hideloader {
     to{
@@ -445,14 +444,12 @@ footer ul li a:hover{
 #loader{
     visibility: visible;
 }
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% {  transform: rotate(360deg);}
 }
-
 @media (min-width: 0px) {
-    body::after {
+    .hiden::after {
         content: '';
         display: block;
         opacity: 0;
