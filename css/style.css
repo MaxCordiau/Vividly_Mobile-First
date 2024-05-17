@@ -420,7 +420,7 @@ footer ul li a:hover{
     }
 }
 
-#loader {
+.loader {
     position: fixed;
     left: 50%;
     top: 50%;
@@ -429,30 +429,37 @@ footer ul li a:hover{
     border: 5px solid var(--white);
     border-top: 5px solid var(--orange);
     border-radius: 50%;
-    animation: spin 2s linear normal;
+    animation: spin 2s linear infinite, hideLoader 2s forwards; /* Spin and hide after 3 seconds */
     transform: translate(-50%, -50%);
     z-index: 1000;
 }
-#loader::before {
-    background-color: var(--lightOrange);
+#loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--lightOrange); /* Background color for the loader container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: hideLoaderContainer 3s forwards; /* Hide after 3 seconds */
 }
-@keyframes hideloader {
-    to{
-        opacity: 1;
-    }
-}
-#loader{
-    visibility: visible;
+@keyframes hideLoaderContainer {
+    0% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
 }
 @keyframes spin {
     0% { transform: rotate(0deg); }
-    100% {  transform: rotate(360deg);}
+    100% { transform: rotate(360deg); }
 }
-@media (min-width: 0px) {
-    .hiden::after {
-        content: '';
-        display: block;
-        opacity: 0;
-        animation: hideLoader 1s forwards; 
-    }
+
+@keyframes hideLoader {
+    0% { opacity: 1; }
+    100% { opacity: 0;transition: all 0.3s; visibility: hidden; }
+}
+@keyframes showContent {
+    0% { opacity: 0; }
+    100% { opacity: 1; visibility: visible; }
 }
