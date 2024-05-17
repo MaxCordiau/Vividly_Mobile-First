@@ -28,7 +28,7 @@ h3 {
     color: var(--roboto);
 }
 p {
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 400;
     color: var(--roboto);
 }
@@ -46,7 +46,7 @@ p {
     --bgcButtonHover: linear-gradient(198.58deg, #FFAE00 15.56%, #FF7800 100%);
 }
 .container1440 {
-    max-width: 1440px;
+    max-width: 1024px;
     margin: auto;
     /* padding: 0px 15px; */
 }
