@@ -536,3 +536,23 @@ h1{
         margin: 0;
     }
 }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* overflow: hidden; */
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+/* Initial state for the fade-in effect */
+#content {
+    opacity: 0;
+    animation: fadeIn 2s forwards; /* Adjust duration as needed */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
